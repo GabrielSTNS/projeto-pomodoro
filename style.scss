@@ -1,0 +1,304 @@
+/*
+===================
+| IMPORT DA FONTE |
+===================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&display=swap");
+
+/*
+===================
+| RESET DA PÁGINA |
+===================
+*/
+@mixin reset() {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Chau Philomene One", sans-serif;
+}
+
+* {
+  @include reset;
+}
+
+/*
+===========
+|VARIÁVEIS|
+===========
+*/
+$title_color: #d7cbcb;
+$subtitle_color: #fd1e1e;
+$red_color: #b72222;
+$cards-bg: #272020;
+
+/*
+==========================
+|ESTILIZAÇÃO DO CABEÇAÇHO|
+==========================
+*/
+header {
+  background-image: url("./img/fundo_tomate.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding: 1.5rem 2rem;
+}
+
+.navbox {
+  display: flex;
+  justify-content: space-between;
+
+  .box-icon {
+    color: $title_color;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}
+
+.navbar {
+  width: 25vw;
+  display: flex;
+  justify-content: space-evenly;
+  .btn-header {
+    color: $title_color;
+    text-decoration: none;
+    background-color: $red_color;
+    padding: 0.6rem 1.2rem;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $subtitle_color;
+      color: #fff;
+    }
+  }
+}
+
+.box-title {
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+
+  h1 {
+    color: $title_color;
+    font-size: 8rem;
+  }
+
+  p {
+    color: $subtitle_color;
+    font-size: 2.5rem;
+  }
+}
+
+/*
+===================================
+|ESTILIZAÇÃO DO CONTEÚDO PRINCIPAL|
+===================================
+*/
+.paragraph {
+  background-color: $title_color;
+  height: 30vh;
+  padding: 4rem;
+
+  p {
+    font-size: 2.7rem;
+  }
+}
+
+.cards {
+  background-color: $cards-bg;
+  height: 100vh;
+  padding: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .cards-wrapper {
+    width: calc((15vw * 3) + (30px * 2));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .card {
+    border-radius: 1rem;
+    width: 15vw;
+    height: 40vh;
+    position: relative;
+    overflow: hidden;
+    background-color: $red_color;
+    background-size: cover;
+    background-position: center;
+
+    p {
+      color: #fff;
+      font-size: 1.6rem;
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      z-index: 2;
+    }
+  }
+
+  #card-1 {
+    background-image: url("./img/checklist.png");
+  }
+  #card-2 {
+    background-image: url("./img/notebook-1.png");
+  }
+  #card-3 {
+    background-image: url("./img/placa.png");
+  }
+  #card-4 {
+    background-image: url("./img/notebook2.png");
+  }
+  #card-5 {
+    background-image: url("./img/pausa.png");
+  }
+  #card-6 {
+    background-image: url("./img/notebook3.png");
+  }
+}
+
+/*
+=======================
+|ESTILIZAÇÃO DO RODAPÉ|
+=======================
+*/
+footer {
+  height: 10vh;
+  background-color: $title_color;
+  padding-top: 40px;
+
+  p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $red_color;
+    font-weight: 700;
+  }
+}
+
+/*
+================
+|RESPONSIVIDADE|
+================
+*/
+@media (max-width: 1024px) {
+  header {
+    width: 100%;
+  }
+
+  .navbar {
+    width: 40vw;
+  }
+
+  .box-title {
+    h1 {
+      font-size: 6rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .paragraph {
+    width: 100%;
+    height: auto;
+    padding: 3rem;
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .cards {
+    width: 100%;
+    height: auto;
+    padding: 40px;
+
+    .cards-wrapper {
+      width: 100%;
+      gap: 20px;
+    }
+
+    .card {
+      width: calc(50% - 10px);
+      height: 35vh;
+
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    height: auto;
+    padding: 30px 15px;
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbox {
+    .navbar {
+      display: none;
+    }
+    justify-content: flex-end;
+  }
+
+  .box-title {
+    height: 70vh;
+
+    h1 {
+      font-size: 3.5rem;
+    }
+    p {
+      font-size: 1.3rem;
+    }
+  }
+
+  .paragraph {
+    padding: 2rem;
+    p {
+      font-size: 1.4rem;
+      line-height: 1.5;
+    }
+  }
+
+  .cards {
+    padding: 30px 20px;
+
+    .cards-wrapper {
+      gap: 25px;
+    }
+
+    .card {
+      width: 100%;
+      height: 30vh;
+
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  footer {
+    padding: 25px 15px;
+    p {
+      font-size: 1rem;
+    }
+  }
+}
